@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-	require("commands").setup()
+	require("nvim.commands").setup()
 end
 
 return M
