@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-	print("Notion plugin initilized")
+	require("commands").setup()
 end
 
 return M
