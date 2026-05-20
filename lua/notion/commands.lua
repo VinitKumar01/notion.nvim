@@ -1,14 +1,14 @@
 local M = {}
 
 function M.setup()
-	local utils = require("notion.utils")
+	local notion_apis = require("notion.notion_apis")
 	local api_key = vim.env.NOTION_API_KEY
 
 	vim.api.nvim_create_user_command("Notion", function(opts)
 		local subcommand = opts.fargs[1]
 
 		if subcommand == "list" then
-			utils.list(api_key)
+			notion_apis.list(api_key)
 		elseif subcommand == "open" then
 			print("open selected")
 		elseif subcommand == "append" then
@@ -18,7 +18,7 @@ function M.setup()
 		end
 	end, {
 		nargs = 1,
-		complete = function(ArgLead, CmdLine, CursorPos)
+		complete = function(_, CmdLine, CursorPos)
 			local args = vim.split(CmdLine:sub(1, CursorPos), "%s+")
 			local n = #args
 

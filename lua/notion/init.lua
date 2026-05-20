@@ -1,3 +1,5 @@
+local utils = require("notion.utils")
+
 local M = {
 	config = {},
 }
@@ -8,7 +10,7 @@ function M.setup(opts)
 	M.config = vim.tbl_deep_extend("force", {}, opts or {})
 
 	if not api_key then
-		vim.notify("[notion.nvim] Missing api key in config", vim.log.levels.ERROR)
+		utils.schedule_notify("[notion.nvim] Missing api key in config", vim.log.levels.ERROR)
 		return
 	end
 
