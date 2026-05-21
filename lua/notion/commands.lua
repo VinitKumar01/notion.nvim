@@ -9,10 +9,6 @@ function M.setup()
 
 		if subcommand == "list" then
 			notion_apis.list(api_key)
-		elseif subcommand == "open" then
-			print("open selected")
-		elseif subcommand == "append" then
-			print("append selected")
 		else
 			vim.notify(("Unknown subcommand: %s"):format(subcommand), vim.log.levels.ERROR)
 		end
@@ -23,7 +19,7 @@ function M.setup()
 			local n = #args
 
 			if n <= 2 then
-				return { "list", "open", "append" }
+				return { "list" }
 			end
 
 			return {}
